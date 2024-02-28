@@ -16,7 +16,7 @@ This is a minimalist reddit client webapp designed to test my front end developm
 - minimal clutter/UI
 
 ### Design
-- wireframes @ [https://www.figma.com/file/qFiunPPZj47rshu1VUWfLA/miniReddit?type=design&node-id=0-1&mode=design&t=E3JdXrAAaPrtsMMe-0](figma)
+- wireframes @ [figma](https://www.figma.com/file/qFiunPPZj47rshu1VUWfLA/miniReddit?type=design&node-id=0-1&mode=design&t=E3JdXrAAaPrtsMMe-0)
 
 ## Tech
 - HTML
