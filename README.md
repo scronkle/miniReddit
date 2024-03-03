@@ -24,3 +24,4 @@ This is a minimalist reddit client webapp designed to test my front end developm
 - CSS
 - git
 - React
+- Node.js
