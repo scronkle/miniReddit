@@ -1,5 +1,7 @@
 import React from "react";
-import mockData from "./newcastle";
+import mockHome from "./mockData/newcastleHome";
+import mockNew from "./mockData/newcastleNew";
+import mockTop from "./mockData/newcastleTop";
 
 
 const Reddit = {
@@ -8,8 +10,16 @@ const Reddit = {
     .then(response => response.json())
     .then(jsonResponse => console.log(jsonResponse))
   },
-  mockFetch: () => {
-    return mockData
+  mockFetch: (feedTarget) => {
+    switch (feedTarget) {
+      case "home":
+        return mockHome
+      case "top":
+        return mockTop
+      case "new":
+        return mockNew
+    }
+    
   }
 }
 
