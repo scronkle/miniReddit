@@ -4,7 +4,7 @@ import styles from './Post.module.css'
 
 function Post (props) {
   return (
-    <div>
+    <div className={styles.postCard}>
       <p className={styles.postTitle}>{props.postData.title}</p>
       <p>{props.postData.selftext}</p>
     </div>

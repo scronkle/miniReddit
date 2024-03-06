@@ -40,6 +40,7 @@
 
 .body-container {
   display: flex;
+  background: linear-gradient(90deg, #222, #111 10%, #111 90%, #222)
 }
 
 .side-panel {

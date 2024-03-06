@@ -1,3 +1,10 @@
 .postTitle {
   font-weight: bold;
 }
+
+.postCard {
+  background-color: #333333;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+}
