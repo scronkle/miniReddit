@@ -5,10 +5,26 @@ import { Reddit } from '../../Util/Reddit';
 import Feed from '../Feed/Feed';
 import React, {useState} from 'react';
 import Directory from '../Directory/Directory';
+import SearchBar from '../SearchBar/SearchBar';
+import { useEffect } from 'react';
 
 function App() {
-  const [path, setPath] = useState('home')
-  const pageData = Reddit.mockFetch(path)
+  const [path, setPath] = useState('best')
+  const [feedPosts, setFeedPosts] = useState([])
+  
+  function updateFeed() {
+    Reddit.fetch(path).then((result)=>setFeedPosts(result.data.children))
+  }
+  
+  
+  useEffect(()=>{
+    updateFeed()
+  }, [path])
+  
+
+
+
+  
 
 
   return (
@@ -18,9 +34,10 @@ function App() {
       </header>
       <div className="body-container">
         <div className='side-panel'>
+          <SearchBar/>
           <Directory path={path} setPath={setPath}/>
         </div>
-        <Feed posts={pageData.data.children}/>
+        <Feed posts={feedPosts}/>
         <div className='side-panel'></div>
       </div>
     </div>

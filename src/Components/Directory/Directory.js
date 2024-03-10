@@ -7,13 +7,13 @@ function Directory(props) {
     props.setPath(goal)
   }
 
-  let home = <p onClick={()=>{props.setPath('home')}}>HOME</p>
+  let best = <p onClick={()=>{props.setPath('best')}}>BEST</p>
   let top = <p onClick={() => {props.setPath('top')}}>TOP</p>
   let New = <p onClick={()=>{props.setPath('new')}}>NEW</p>
   
   switch (path) {
-    case "home":
-      home = <p className={styles.here}>HOME</p>
+    case "best":
+      best = <p className={styles.here}>BEST</p>
       break
     case "top":
       top = <p className={styles.here}>TOP</p>
@@ -25,7 +25,7 @@ function Directory(props) {
 
   return (
     <div>
-      {home}
+      {best}
       {top}
       {New}
     </div>

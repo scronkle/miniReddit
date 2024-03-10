@@ -3,6 +3,7 @@ import Post from "../Post/Post";
 import styles from "./Feed.module.css"
 
 function Feed(props) {
+
   return (
     <div className={styles.Feed}>
       {props.posts.map((post)=>{

@@ -6,7 +6,7 @@ function Post (props) {
   return (
     <div className={styles.postCard}>
       <p className={styles.postTitle}>{props.postData.title}</p>
-      <p>{props.postData.selftext}</p>
+      <p className={styles.postText}>{props.postData.selftext}</p>
     </div>
   )
 }
