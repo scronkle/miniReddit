@@ -6,22 +6,44 @@ import Feed from '../Feed/Feed';
 import React, {useState} from 'react';
 import Directory from '../Directory/Directory';
 import SearchBar from '../SearchBar/SearchBar';
+import FullPost from '../FullPost/FullPost';
 import { useEffect } from 'react';
+import { type } from '@testing-library/user-event/dist/type';
 
 function App() {
   const [path, setPath] = useState('best')
   const [feedPosts, setFeedPosts] = useState([])
+  const [postInfo, setPostInfo] = useState({})
+  const [view, setView] = useState('feed')
   
-  function updateFeed() {
-    Reddit.fetch(path).then((result)=>setFeedPosts(result.data.children))
+  function updateView() {
+    Reddit.fetch(path).then((result)=>{
+      if (Array.isArray(result)) {
+        setView('fullPost')
+        setPostInfo(result)
+      } else {
+        setView('feed')
+        setFeedPosts(result.data.children)
+      }
+      console.log(view)
+    })
   }
   
   
   useEffect(()=>{
-    updateFeed()
+    updateView()
+    console.log(path)
   }, [path])
-  
 
+
+
+  function bodyCheck() {
+    if (view === 'feed') {
+      return <Feed posts={feedPosts} setPath={setPath}/>
+    } else {
+      return <FullPost postInfo={postInfo}/>
+    }
+  }
 
 
   
@@ -37,7 +59,7 @@ function App() {
           <SearchBar/>
           <Directory path={path} setPath={setPath}/>
         </div>
-        <Feed posts={feedPosts}/>
+        {bodyCheck()}
         <div className='side-panel'></div>
       </div>
     </div>

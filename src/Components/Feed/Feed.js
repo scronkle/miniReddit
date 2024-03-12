@@ -8,7 +8,7 @@ function Feed(props) {
     <div className={styles.Feed}>
       {props.posts.map((post)=>{
         return (
-          <Post postData={post.data} key={post.data.id}/>
+          <Post postData={post.data} key={post.data.id} setPath={props.setPath}/>
         )
       })}
     </div>
