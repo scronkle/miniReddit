@@ -4,7 +4,7 @@ import styles from './Post.module.css'
 
 function Post (props) {
   //destructure useful post info from props
-  const {subreddit, thumbnail, permalink, post_hint, is_self} = props.postData
+  const {subreddit, thumbnail, permalink, post_hint, is_self, url} = props.postData
 
 
 
@@ -26,7 +26,8 @@ function Post (props) {
   return (
     <div className={styles.postCard} onClick={()=>{props.setPath(permalink)}}>
       <p>{`r/${subreddit}`}</p>
-      {media === "img" ? <img src={thumbnail}></img> : <></>}
+      {/*if the post has an image, render an image tag for thumbnail*/}
+      {media === "img" ? <img src={url} className={styles.thumbnail}></img> : <></>}
       <p className={styles.postTitle}>{props.postData.title}</p>
       <p className={styles.postText}>{props.postData.selftext}</p>
     </div>

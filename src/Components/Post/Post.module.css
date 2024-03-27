@@ -12,3 +12,7 @@
 .postText {
   text-align: left;
 }
+
+.thumbnail {
+  width: 100%;
+}
